@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ Concept — PropagaCar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Be Vietnam Pro',sans-serif;
+  background:
+    linear-gradient(rgba(20,33,61,.032) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(20,33,61,.032) 1px,transparent 1px),
+    #F8F9FC;
+  background-size:60px 60px,60px 60px,100% 100%;
+  background-attachment:fixed;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:60px 20px;
+}
+
+.container{width:100%;max-width:1100px}
+
+/* ── SECTION ── */
+.faq-section{
+  display:grid;
+  grid-template-columns:1fr 1.6fr;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 32px 80px rgba(20,33,61,.12);
+}
+
+/* ── PAINEL ESQUERDO ── */
+.faq-left{
+  background:#FCA40E;
+  padding:56px 44px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.faq-left::before{
+  content:'?';
+  position:absolute;bottom:-32px;right:-20px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:18rem;font-weight:800;
+  color:rgba(20,33,61,.07);line-height:1;
+  pointer-events:none;user-select:none;
+}
+.faq-left-label{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.65rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:rgba(20,33,61,.5);margin-bottom:16px;
+}
+.faq-left h2{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(2rem,3.5vw,3rem);font-weight:800;
+  color:#14213D;letter-spacing:-1.5px;line-height:1.05;
+  margin-bottom:20px;position:relative;z-index:1;
+}
+.faq-left p{
+  font-size:.9rem;color:rgba(20,33,61,.65);
+  line-height:1.7;max-width:260px;
+  position:relative;z-index:1;
+}
+.faq-left-cta{
+  display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
+  background:#14213D;color:#fff;
+  padding:13px 24px;border-radius:50px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.8rem;font-weight:700;
+  text-decoration:none;
+  transition:all .3s;
+  position:relative;z-index:1;
+  margin-top:36px;
+}
+.faq-left-cta:hover{background:#1d2d50;transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,33,61,.25)}
+.faq-left-cta .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#FCA40E;flex-shrink:0;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(252,164,14,.5)}
+  50%{box-shadow:0 0 0 6px rgba(252,164,14,0)}
+}
+
+/* ── PAINEL DIREITO ── */
+.faq-right{
+  background:#fff;
+  padding:48px 44px;
+  display:flex;flex-direction:column;gap:0;
+}
+.faq-right-header{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.65rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:#A0A5B8;
+  margin-bottom:28px;
+  padding-bottom:20px;
+  border-bottom:1px solid #E8EAF0;
+}
+
+/* ── ACCORDION ── */
+.faq-item{
+  border-bottom:1px solid #E8EAF0;
+  transition:all .3s;
+}
+.faq-item:last-child{border-bottom:none}
+
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:20px 0;
+  cursor:pointer;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.9rem;font-weight:600;color:#14213D;
+  transition:color .25s;
+  user-select:none;
+}
+.faq-q:hover{color:#FCA40E}
+
+.faq-icon{
+  width:30px;height:30px;min-width:30px;border-radius:8px;
+  background:#F8F9FC;border:1px solid #E8EAF0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;color:#A0A5B8;
+  transition:all .3s;flex-shrink:0;
+}
+.faq-item.open .faq-q{color:#FCA40E}
+.faq-item.open .faq-icon{
+  background:#FCA40E;border-color:#FCA40E;
+  color:#14213D;transform:rotate(45deg);
+}
+
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease;
+}
+.faq-a-inner{
+  padding:0 0 20px;
+  font-size:.85rem;color:#6B7186;line-height:1.75;
+}
+.faq-a-inner strong{color:#14213D}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="faq-section">
+
+    <!-- Esquerda -->
+    <div class="faq-left">
+      <div>
+        <div class="faq-left-label">Dúvidas comuns</div>
+        <h2>Perguntas<br>frequentes</h2>
+        <p>Reunimos as dúvidas mais comuns sobre como a PropagaCar funciona para anunciantes, motoristas e passageiros.</p>
+      </div>
+      <a href="https://wa.me/5511913605854" class="faq-left-cta" target="_blank">
+        <span class="dot"></span>
+        Falar no WhatsApp
+      </a>
+    </div>
+
+    <!-- Direita -->
+    <div class="faq-right">
+      <div class="faq-right-header">5 perguntas respondidas</div>
+
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como funciona o serviço?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Durante a corrida, o passageiro assiste a vídeos curtos em tablets instalados no carro. Cada vídeo apresenta estabelecimentos da região. O passageiro acessa um <strong>QR Code</strong> para descontos exclusivos e o motorista recebe bônus conforme o número de corridas realizadas.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quem pode anunciar?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Estabelecimentos regionais que querem aumentar a confiança e visibilidade local. <strong>Restaurantes, clínicas, salões, lojas</strong> e qualquer negócio com público local podem anunciar conosco.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quais os benefícios para o cliente?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Clientes ganham <strong>descontos exclusivos</strong> nos estabelecimentos anunciados, tornando a experiência mais vantajosa. Basta escanear o QR Code exibido no tablet durante a viagem.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como os motoristas participam?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Motoristas recebem uma <strong>renda extra</strong> exibindo os anúncios durante as corridas. Basta se cadastrar, receber o tablet e rodar normalmente. O pagamento é feito por valor fixo mais bonificações por metas.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Posso escolher onde anunciar?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Sim, você pode selecionar <strong>regiões específicas</strong> para impactar seu público-alvo local. Os carros parceiros rodam na região próxima ao seu estabelecimento.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const ans  = item.querySelector('.faq-a');
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-a').style.maxHeight = '0';
+  });
+  if (!open) {
+    item.classList.add('open');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
+  }
+}
+// Abre o primeiro item
+document.querySelector('.faq-item.open .faq-a').style.maxHeight =
+  document.querySelector('.faq-item.open .faq-a').scrollHeight + 'px';
+</script>
+</body>
+</html>

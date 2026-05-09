@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer V2 — CTA central + colunas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Be Vietnam Pro',sans-serif;
+  background:
+    linear-gradient(rgba(20,33,61,.032) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(20,33,61,.032) 1px,transparent 1px),
+    #F8F9FC;
+  background-size:60px 60px,60px 60px,100% 100%;
+  background-attachment:fixed;
+  min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+}
+.page-hint{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  color:rgba(20,33,61,.18);font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+}
+a{text-decoration:none;color:inherit}
+
+/* ── FOOTER V2: CTA central + colunas de links ── */
+footer{background:#F8F9FC;border-top:1px solid rgba(20,33,61,.07)}
+.container{max-width:1160px;margin:0 auto;padding:0 28px}
+
+/* Faixa CTA laranja */
+.footer-cta-band{
+  background:#14213D;
+  padding:40px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  flex-wrap:wrap;
+}
+.footer-cta-text h3{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:1.25rem;font-weight:800;color:#fff;margin-bottom:4px;
+}
+.footer-cta-text p{font-size:.85rem;color:rgba(255,255,255,.5)}
+.footer-cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-wpp{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#FCA40E;color:#14213D;
+  padding:12px 24px;border-radius:50px;
+  font-family:'Bricolage Grotesque',sans-serif;font-size:.82rem;font-weight:700;
+  transition:all .3s;
+}
+.btn-wpp:hover{background:#e8930a;transform:translateY(-2px)}
+.btn-email{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.15);
+  padding:12px 24px;border-radius:50px;
+  font-family:'Bricolage Grotesque',sans-serif;font-size:.82rem;font-weight:600;
+  transition:all .3s;
+}
+.btn-email:hover{background:rgba(255,255,255,.14);color:#fff}
+
+/* Links */
+.footer-links-area{
+  display:grid;grid-template-columns:1.6fr repeat(3,1fr);
+  gap:40px;padding:48px 0 40px;
+  border-bottom:1px solid rgba(20,33,61,.07);
+}
+.footer-brand-col .footer-logo{height:30px;margin-bottom:12px;opacity:.8}
+.footer-brand-col p{
+  font-size:.82rem;color:#6B7186;line-height:1.7;max-width:210px;
+}
+
+.link-col h5{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.62rem;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:#A0A5B8;margin-bottom:16px;
+}
+.link-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.link-col ul li a{
+  font-size:.82rem;color:#6B7186;transition:color .25s;
+}
+.link-col ul li a:hover{color:#14213D}
+
+/* Bottom */
+.footer-bottom{
+  padding:18px 0;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:10px;
+}
+.footer-copy{font-size:.7rem;color:#A0A5B8}
+.footer-copy a{color:#6B7186;transition:color .25s}
+.footer-copy a:hover{color:#FCA40E}
+.footer-badge{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:#A0A5B8;
+  background:rgba(20,33,61,.05);border:1px solid rgba(20,33,61,.07);
+  padding:5px 12px;border-radius:50px;
+}
+</style>
+</head>
+<body>
+
+<div class="page-hint">conteúdo da página acima</div>
+
+<footer>
+
+  <!-- Faixa CTA -->
+  <div class="footer-cta-band">
+    <div class="footer-cta-text">
+      <h3>Pronto para anunciar sua marca?</h3>
+      <p>Fale com a equipe e comece sua campanha hoje.</p>
+    </div>
+    <div class="footer-cta-btns">
+      <a href="https://wa.me/5511913605854" class="btn-wpp" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.573-1.46A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.5-.648-6.358-1.772l-.456-.272-2.715.867.882-2.658-.298-.473A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        WhatsApp
+      </a>
+      <a href="mailto:contato@propagacar.com" class="btn-email">E-mail →</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="footer-links-area">
+
+      <div class="footer-brand-col">
+        <img src="../../assets/logoofc.png" alt="PropagaCar" class="footer-logo">
+        <p>Mídia digital dentro de carros de aplicativo. São Paulo, Brasil.</p>
+      </div>
+
+      <div class="link-col">
+        <h5>Empresa</h5>
+        <ul>
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#">Como funciona</a></li>
+          <li><a href="#">Benefícios</a></li>
+          <li><a href="#">Ética</a></li>
+        </ul>
+      </div>
+
+      <div class="link-col">
+        <h5>Soluções</h5>
+        <ul>
+          <li><a href="#">Para anunciantes</a></li>
+          <li><a href="#">Para motoristas</a></li>
+          <li><a href="#">Plano Standard</a></li>
+          <li><a href="#">Plano Premium</a></li>
+        </ul>
+      </div>
+
+      <div class="link-col">
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="https://wa.me/5511913605854">(11) 91360-5854</a></li>
+          <li><a href="mailto:contato@propagacar.com">contato@propagacar.com</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 PropagaCar · <a href="mailto:contato@propagacar.com">contato@propagacar.com</a></p>
+      <span class="footer-badge">Startup Paulistana</span>
+    </div>
+  </div>
+
+</footer>
+</body>
+</html>

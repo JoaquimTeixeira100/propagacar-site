@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PropagaCar — Teste: Animação de Rota</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:    #14213D;
+  --navy-d:  #0d1825;
+  --navy-m:  #142035;
+  --navy-l:  #1a2d45;
+  --orange:  #FCA40E;
+  --orange-d:#e8930a;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  background:
+    linear-gradient(rgba(20,33,61,.032) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(20,33,61,.032) 1px,transparent 1px),
+    #F8F9FC;
+  background-size:60px 60px,60px 60px,100% 100%;
+  background-attachment:fixed;
+  font-family:'Be Vietnam Pro',sans-serif;
+  padding:48px 20px;
+}
+
+/* ── INTRO ── */
+.wrap { width:100%; max-width:860px; }
+
+.section-label {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.7rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:3px; color:var(--orange-d); margin-bottom:14px;
+}
+.section-label::before {
+  content:''; width:28px; height:2.5px;
+  background:var(--orange); border-radius:2px;
+}
+.section-title {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(1.9rem,4vw,2.8rem); font-weight:800;
+  color:var(--navy); letter-spacing:-1.2px; line-height:0.98; margin-bottom:20px;
+}
+.section-title span { color:var(--orange); }
+.section-desc {
+  font-size:.95rem; color:#4A4F62; line-height:1.72;
+  max-width:500px; margin-bottom:36px;
+}
+
+/* ── MAP CARD ── */
+.map-card {
+  background:var(--navy-d);
+  border-radius:24px; overflow:hidden;
+  box-shadow:0 32px 80px rgba(13,24,37,.45), 0 0 0 1px rgba(255,255,255,.05);
+}
+
+.map-topbar {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 24px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.brand {
+  display:flex; align-items:center; gap:10px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.82rem; font-weight:700; color:rgba(255,255,255,.65);
+}
+.brand-dot {
+  width:8px; height:8px; border-radius:50%; background:var(--orange);
+  animation:livePulse 2s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%,100%{ box-shadow:0 0 0 0 rgba(252,164,14,.45); }
+  50%    { box-shadow:0 0 0 7px rgba(252,164,14,0); }
+}
+.live-badge {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.62rem; font-weight:700; letter-spacing:2px;
+  text-transform:uppercase; color:var(--orange);
+  background:rgba(252,164,14,.1); border:1px solid rgba(252,164,14,.2);
+  padding:4px 12px; border-radius:50px;
+}
+
+/* ── SVG WRAPPER ── */
+.map-svg-wrap { position:relative; width:100%; }
+#map { width:100%; height:auto; display:block; }
+
+/* ── AD CARD ── */
+#adCard {
+  position:absolute;
+  background:rgba(255,255,255,.94); backdrop-filter:blur(12px);
+  border-radius:14px; padding:9px 16px;
+  display:flex; align-items:center; gap:10px;
+  box-shadow:0 8px 32px rgba(0,0,0,.28), 0 0 0 1px rgba(255,255,255,.2);
+  pointer-events:none; white-space:nowrap; z-index:10;
+  opacity:0; transform:translateY(6px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+#adCard.visible { opacity:1; transform:translateY(0); }
+#adCard::after {
+  content:''; position:absolute; bottom:-6px; left:22px;
+  width:12px; height:12px; background:rgba(255,255,255,.94);
+  transform:rotate(45deg); border-radius:2px;
+  box-shadow:3px 3px 5px rgba(0,0,0,.08);
+}
+.ad-icon {
+  width:34px; height:34px; border-radius:9px;
+  background:var(--orange); color:var(--navy);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem; flex-shrink:0;
+}
+.ad-name {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.76rem; font-weight:700; color:var(--navy);
+  margin-bottom:1px;
+}
+.ad-tag {
+  font-size:.65rem; font-weight:600; color:var(--orange-d);
+}
+
+/* ── REPLAY ── */
+.replay-btn {
+  position:absolute; bottom:12px; right:16px;
+  padding:7px 16px;
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
+  border-radius:50px; color:rgba(255,255,255,.5);
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.68rem; font-weight:700; letter-spacing:.5px;
+  cursor:pointer; backdrop-filter:blur(8px);
+  transition:all .3s;
+}
+.replay-btn:hover { background:rgba(255,255,255,.13); color:#fff; }
+
+/* ── STATS ── */
+.stats-row {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.stat {
+  padding:20px 24px; text-align:center;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.stat:last-child { border-right:none; }
+.stat-val {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:1.5rem; font-weight:800; color:#fff;
+  letter-spacing:-.5px; line-height:1; margin-bottom:5px;
+}
+.stat-val em { color:var(--orange); font-style:normal; }
+.stat-lbl {
+  font-size:.68rem; color:rgba(255,255,255,.32);
+  text-transform:uppercase; letter-spacing:1px; font-weight:600;
+}
+
+/* ── PULSE CIRCLES ── */
+.pzone {
+  opacity:0; transition:opacity .5s;
+  animation:zonePulse 2.4s ease-in-out infinite;
+}
+.pzone-glow { opacity:0; transition:opacity .5s; }
+@keyframes zonePulse {
+  0%,100%{ r:5; }
+  50%    { r:9; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <span class="section-label">Cobertura em tempo real</span>
+  <h2 class="section-title">Sua marca percorrendo<br>a cidade em <span>tempo real</span></h2>
+
+  <div class="map-card">
+
+    <!-- Top bar -->
+    <div class="map-topbar">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        PropagaCar — Mapa ao vivo
+      </div>
+      <div class="live-badge">● Ao vivo</div>
+    </div>
+
+    <!-- Map SVG -->
+    <div class="map-svg-wrap">
+      <svg id="map" viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="fGlow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="fCar" x="-120%" y="-120%" width="340%" height="340%">
+            <feGaussianBlur stdDeviation="7" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="fZone">
+            <feGaussianBlur stdDeviation="6"/>
+          </filter>
+          <filter id="fDrop">
+            <feDropShadow dx="0" dy="0" stdDeviation="5"
+              flood-color="#FCA40E" flood-opacity=".55"/>
+          </filter>
+        </defs>
+
+        <!-- Map background -->
+        <rect width="700" height="340" fill="#0d1825"/>
+
+        <!-- Horizontal streets -->
+        <rect x="0"   y="68"  width="700" height="24" fill="#0f2035"/>
+        <rect x="0"   y="168" width="700" height="24" fill="#0f2035"/>
+        <rect x="0"   y="268" width="700" height="24" fill="#0f2035"/>
+
+        <!-- Vertical streets -->
+        <rect x="88"  y="0" width="24" height="340" fill="#0f2035"/>
+        <rect x="218" y="0" width="24" height="340" fill="#0f2035"/>
+        <rect x="348" y="0" width="24" height="340" fill="#0f2035"/>
+        <rect x="478" y="0" width="24" height="340" fill="#0f2035"/>
+        <rect x="608" y="0" width="24" height="340" fill="#0f2035"/>
+
+        <!-- Buildings — Row A (y 0–68) -->
+        <rect x="0"   y="0" width="88"  height="68" fill="#142035" rx="2"/>
+        <rect x="112" y="0" width="106" height="68" fill="#162840" rx="2"/>
+        <rect x="242" y="4" width="106" height="64" fill="#142035" rx="2"/>
+        <rect x="372" y="0" width="106" height="68" fill="#1a2d45" rx="2"/>
+        <rect x="502" y="2" width="106" height="66" fill="#142035" rx="2"/>
+        <rect x="632" y="0" width="68"  height="68" fill="#162840" rx="2"/>
+
+        <!-- Buildings — Row B (y 92–168) -->
+        <rect x="0"   y="92" width="88"  height="76" fill="#1a2d45" rx="2"/>
+        <rect x="112" y="92" width="106" height="76" fill="#142035" rx="2"/>
+        <rect x="242" y="96" width="106" height="72" fill="#162840" rx="2"/>
+        <rect x="372" y="92" width="106" height="76" fill="#142035" rx="2"/>
+        <rect x="502" y="92" width="106" height="76" fill="#1a2d45" rx="2"/>
+        <rect x="632" y="92" width="68"  height="76" fill="#142035" rx="2"/>
+
+        <!-- Buildings — Row C (y 192–268) -->
+        <rect x="0"   y="192" width="88"  height="76" fill="#162840" rx="2"/>
+        <rect x="112" y="192" width="106" height="76" fill="#1a2d45" rx="2"/>
+        <rect x="242" y="196" width="106" height="72" fill="#142035" rx="2"/>
+        <rect x="372" y="192" width="106" height="76" fill="#162840" rx="2"/>
+        <rect x="502" y="192" width="106" height="76" fill="#142035" rx="2"/>
+        <rect x="632" y="192" width="68"  height="76" fill="#1a2d45" rx="2"/>
+
+        <!-- Buildings — Row D (y 292–340) -->
+        <rect x="0"   y="292" width="88"  height="48" fill="#142035" rx="2"/>
+        <rect x="112" y="292" width="106" height="48" fill="#162840" rx="2"/>
+        <rect x="242" y="292" width="106" height="48" fill="#1a2d45" rx="2"/>
+        <rect x="372" y="296" width="106" height="44" fill="#142035" rx="2"/>
+        <rect x="502" y="292" width="106" height="48" fill="#162840" rx="2"/>
+        <rect x="632" y="292" width="68"  height="48" fill="#142035" rx="2"/>
+
+        <!-- Building windows (subtle) -->
+        <rect x="14" y="14" width="5" height="5" fill="rgba(255,255,255,.07)" rx="1"/>
+        <rect x="22" y="14" width="5" height="5" fill="rgba(255,255,255,.1)"  rx="1"/>
+        <rect x="14" y="22" width="5" height="5" fill="rgba(255,255,255,.05)" rx="1"/>
+        <rect x="14" y="52" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+        <rect x="22" y="52" width="5" height="5" fill="rgba(255,255,255,.09)" rx="1"/>
+        <rect x="130" y="10" width="5" height="5" fill="rgba(255,255,255,.07)" rx="1"/>
+        <rect x="138" y="10" width="5" height="5" fill="rgba(255,255,255,.05)" rx="1"/>
+        <rect x="146" y="10" width="5" height="5" fill="rgba(255,255,255,.1)"  rx="1"/>
+        <rect x="130" y="18" width="5" height="5" fill="rgba(255,255,255,.04)" rx="1"/>
+        <rect x="390" y="8"  width="5" height="5" fill="rgba(255,255,255,.08)" rx="1"/>
+        <rect x="398" y="8"  width="5" height="5" fill="rgba(255,255,255,.05)" rx="1"/>
+        <rect x="406" y="8"  width="5" height="5" fill="rgba(255,255,255,.09)" rx="1"/>
+        <rect x="390" y="16" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+        <rect x="524" y="10" width="5" height="5" fill="rgba(255,255,255,.08)" rx="1"/>
+        <rect x="532" y="10" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+        <rect x="8"   y="104" width="5" height="5" fill="rgba(255,255,255,.07)" rx="1"/>
+        <rect x="16"  y="104" width="5" height="5" fill="rgba(255,255,255,.09)" rx="1"/>
+        <rect x="8"   y="112" width="5" height="5" fill="rgba(255,255,255,.04)" rx="1"/>
+        <rect x="8"   y="148" width="5" height="5" fill="rgba(255,255,255,.08)" rx="1"/>
+        <rect x="16"  y="148" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+        <rect x="262" y="100" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+        <rect x="270" y="100" width="5" height="5" fill="rgba(255,255,255,.1)"  rx="1"/>
+        <rect x="278" y="100" width="5" height="5" fill="rgba(255,255,255,.05)" rx="1"/>
+        <rect x="524" y="98"  width="5" height="5" fill="rgba(255,255,255,.07)" rx="1"/>
+        <rect x="532" y="98"  width="5" height="5" fill="rgba(255,255,255,.05)" rx="1"/>
+        <rect x="650" y="100" width="5" height="5" fill="rgba(255,255,255,.08)" rx="1"/>
+        <rect x="650" y="108" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+
+        <!-- Zone glow blobs at active intersections -->
+        <circle class="pzone-glow" id="g1" cx="100" cy="80"  r="24" fill="rgba(252,164,14,.08)" filter="url(#fZone)"/>
+        <circle class="pzone-glow" id="g2" cx="360" cy="280" r="24" fill="rgba(252,164,14,.08)" filter="url(#fZone)"/>
+        <circle class="pzone-glow" id="g3" cx="490" cy="80"  r="24" fill="rgba(252,164,14,.08)" filter="url(#fZone)"/>
+
+        <!-- Route path (animated) -->
+        <path id="routePath"
+          d="M 0,180 L 100,180 L 100,80 L 230,80 L 230,280 L 360,280 L 360,80 L 490,80 L 490,180 L 620,180 L 620,280 L 700,280"
+          fill="none" stroke="#FCA40E" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"
+          filter="url(#fDrop)"
+          stroke-dasharray="1400" stroke-dashoffset="1400"
+        />
+
+        <!-- Pulse zones at key turns -->
+        <circle class="pzone" id="pz1" cx="100" cy="80"  r="5" fill="rgba(252,164,14,.55)"/>
+        <circle class="pzone" id="pz2" cx="360" cy="280" r="5" fill="rgba(252,164,14,.55)"/>
+        <circle class="pzone" id="pz3" cx="490" cy="80"  r="5" fill="rgba(252,164,14,.55)"/>
+
+        <!-- Car glow + body -->
+        <circle id="carGlow" cx="0" cy="180" r="14" fill="rgba(252,164,14,.22)" filter="url(#fCar)"/>
+        <circle id="car"     cx="0" cy="180" r="7"  fill="#FCA40E"/>
+        <circle id="carDot"  cx="0" cy="180" r="2.5" fill="rgba(255,255,255,.95)"/>
+
+        <!-- Start dot -->
+        <circle cx="0" cy="180" r="4" fill="rgba(252,164,14,.35)"/>
+        <!-- End dot -->
+        <circle cx="700" cy="280" r="4" fill="rgba(252,164,14,.25)"/>
+      </svg>
+
+      <!-- Ad popup -->
+      <div id="adCard">
+        <div class="ad-icon" id="adIcon">🍕</div>
+        <div>
+          <div class="ad-name" id="adName">Pizzaria Morumbi</div>
+          <div class="ad-tag"  id="adTag">20% OFF hoje</div>
+        </div>
+      </div>
+
+      <button class="replay-btn" id="replayBtn">↺ Repetir</button>
+    </div>
+
+
+  </div><!-- /map-card -->
+</div><!-- /wrap -->
+
+<script>
+/* ── CONFIG ── */
+const ROUTE_D      = "M 0,180 L 100,180 L 100,80 L 230,80 L 230,280 L 360,280 L 360,80 L 490,80 L 490,180 L 620,180 L 620,280 L 700,280";
+const TOTAL_LEN    = 1400;
+const DRAW_MS      = 2400;   // route draws in 2.4s
+const DRIVE_MS     = 8000;   // one full loop = 8s
+const VIEWBOX_W    = 700;
+const VIEWBOX_H    = 340;
+
+/* waypoints: [length_at_point, advertiser_index] */
+const ADVERTISERS = [
+  { icon:'🍕', name:'Pizzaria Morumbi',  tag:'20% OFF hoje'      },
+  { icon:'💇', name:'Salão Bella Vista',  tag:'Combo especial'    },
+  { icon:'🏥', name:'Clínica Vida+',      tag:'1ª consulta grátis'},
+  { icon:'☕', name:'Café do Bairro',      tag:'Fidelidade dobrada'},
+];
+const WAYPOINTS = [0, 0.28, 0.55, 0.78]; // frações do percurso para trocar anúncio
+
+/* ── ELEMENTS ── */
+const routePath = document.getElementById('routePath');
+const svg       = document.getElementById('map');
+const mapWrap   = document.querySelector('.map-svg-wrap');
+const carEl     = document.getElementById('car');
+const carGlow   = document.getElementById('carGlow');
+const carDot    = document.getElementById('carDot');
+const adCard    = document.getElementById('adCard');
+const replayBtn = document.getElementById('replayBtn');
+
+const pulses = ['pz1','pz2','pz3'].map(id => document.getElementById(id));
+const glows  = ['g1','g2','g3'].map(id  => document.getElementById(id));
+
+/* ── STATE ── */
+let rafId     = null;
+let startTime = null;
+let phase     = 'draw';      // 'draw' | 'drive'
+let lastAdIdx = -1;
+
+/* precompute path points (1000 samples) for cheap getPoint */
+let pathPts = [];
+function precompute() {
+  pathPts = [];
+  for (let i = 0; i <= 1000; i++) {
+    pathPts.push(routePath.getPointAtLength((i / 1000) * TOTAL_LEN));
+  }
+}
+
+/* convert SVG coord → px inside mapWrap */
+function svgToPx(sx, sy) {
+  const svgR  = svg.getBoundingClientRect();
+  const wrapR = mapWrap.getBoundingClientRect();
+  return {
+    x: sx * (svgR.width  / VIEWBOX_W) + (svgR.left - wrapR.left),
+    y: sy * (svgR.height / VIEWBOX_H) + (svgR.top  - wrapR.top),
+  };
+}
+
+function moveCar(pt) {
+  [carEl, carGlow, carDot].forEach(el => {
+    el.setAttribute('cx', pt.x);
+    el.setAttribute('cy', pt.y);
+  });
+}
+
+function positionAdCard(svgX, svgY) {
+  const px  = svgToPx(svgX, svgY);
+  const cw  = adCard.offsetWidth  || 200;
+  const ch  = adCard.offsetHeight || 56;
+  const ww  = mapWrap.offsetWidth;
+  let left  = px.x - cw / 2;
+  left = Math.max(8, Math.min(left, ww - cw - 8));
+  adCard.style.left = left + 'px';
+  adCard.style.top  = (px.y - ch - 22) + 'px';
+}
+
+function setAdvertiser(idx) {
+  if (idx === lastAdIdx) return;
+  lastAdIdx = idx;
+  const a = ADVERTISERS[idx % ADVERTISERS.length];
+  adCard.style.opacity = '0';
+  setTimeout(() => {
+    document.getElementById('adIcon').textContent = a.icon;
+    document.getElementById('adName').textContent  = a.name;
+    document.getElementById('adTag').textContent   = a.tag;
+    adCard.style.opacity = '';
+  }, 200);
+}
+
+function showPulses(pct) {
+  if (pct > 0.07) { pulses[0].style.opacity='1'; glows[0].style.opacity='1'; }
+  if (pct > 0.55) { pulses[1].style.opacity='1'; glows[1].style.opacity='1'; }
+  if (pct > 0.55) { pulses[2].style.opacity='1'; glows[2].style.opacity='1'; }
+}
+
+/* ── ANIMATION LOOP ── */
+function tick(ts) {
+  if (!startTime) startTime = ts;
+  const elapsed = ts - startTime;
+
+  if (phase === 'draw') {
+    const p = Math.min(elapsed / DRAW_MS, 1);
+    routePath.setAttribute('stroke-dashoffset', TOTAL_LEN * (1 - p));
+    showPulses(p);
+
+    if (p >= 1) {
+      phase = 'drive';
+      startTime = ts;
+      adCard.classList.add('visible');
+    }
+
+  } else {
+    const raw = (elapsed % DRIVE_MS) / DRIVE_MS;
+    const idx = Math.min(Math.floor(raw * 1000), 999);
+    const pt  = pathPts[idx];
+
+    moveCar(pt);
+    positionAdCard(pt.x, pt.y);
+
+    /* swap advertiser at waypoints */
+    const wpIdx = WAYPOINTS.findLastIndex(w => raw >= w);
+    if (wpIdx >= 0) setAdvertiser(wpIdx);
+  }
+
+  rafId = requestAnimationFrame(tick);
+}
+
+/* ── RESET & START ── */
+function start() {
+  if (rafId) cancelAnimationFrame(rafId);
+  startTime = null;
+  phase     = 'draw';
+  lastAdIdx = -1;
+  routePath.setAttribute('stroke-dashoffset', TOTAL_LEN);
+  pulses.forEach(p => p.style.opacity = '0');
+  glows.forEach(g  => g.style.opacity = '0');
+  adCard.classList.remove('visible');
+  moveCar({ x: 0, y: 180 });
+  rafId = requestAnimationFrame(tick);
+}
+
+replayBtn.addEventListener('click', start);
+
+/* init */
+precompute();
+start();
+</script>
+</body>
+</html>

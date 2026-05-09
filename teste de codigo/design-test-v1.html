@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PropagaCar — Design Test v1</title>
+<meta name="description" content="Anuncie sua marca em tablets dentro de carros de aplicativo. Impacte clientes com atenção total durante o trajeto. Segmentação regional, QR Code com descontos e relatórios de acompanhamento.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PropagaCar — Sua Marca em Movimento">
+<meta property="og:description" content="Anuncie sua marca em tablets dentro de carros de aplicativo. Segmentação regional e QR Code com descontos exclusivos.">
+<meta property="og:image" content="../assets/logoofc.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PropagaCar — Sua Marca em Movimento">
+<meta name="twitter:description" content="Anuncie sua marca em tablets dentro de carros de aplicativo.">
+<meta name="twitter:image" content="../assets/logoofc.png">
+<link rel="icon" href="../assets/logoofc.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+/* ════════════════════════════════════════════════════════
+   DESIGN TEST v1 — overrides sobre style.css
+   Sem alterar HTML — apenas CSS
+   ════════════════════════════════════════════════════════ */
+
+/* ── 1. HERO: glow blobs de fundo ── */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -8%;
+  right: -4%;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(252,164,14,.13) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+  animation: heroBlobFloat 9s ease-in-out infinite;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 2%;
+  left: -6%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(20,33,61,.08) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes heroBlobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-18px, 22px) scale(1.12); }
+}
+
+/* ── 2. GRADIENT TEXT no .highlight do hero ── */
+.hero h1 .highlight {
+  background: linear-gradient(120deg, #FCA40E 0%, #f97316 55%, #fdb94a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.hero h1 .highlight::after {
+  background: linear-gradient(90deg, #FCA40E, #f97316);
+  opacity: .3;
+}
+
+/* ── 3. SEÇÃO #como — fundo navy escuro ── */
+.como {
+  background: linear-gradient(170deg, #0c1526 0%, #14213D 100%) !important;
+  overflow: hidden;
+}
+.como::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -5%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(252,164,14,.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.como .section-label            { color: #fdb94a !important; }
+.como .section-label::before    { background: #FCA40E !important; }
+.como .section-title            { color: #fff !important; }
+.como .tab-hint                 { color: rgba(255,255,255,.28) !important; }
+
+.como .como-tab {
+  background:    rgba(255,255,255,.05) !important;
+  border-color:  rgba(255,255,255,.1)  !important;
+  color:         rgba(255,255,255,.55) !important;
+}
+.como .como-tab.active {
+  background:   #FCA40E !important;
+  border-color: #FCA40E !important;
+  color:        #14213D !important;
+  box-shadow:   0 4px 20px rgba(252,164,14,.3) !important;
+}
+.como .como-tab:hover:not(.active) {
+  background:   rgba(255,255,255,.08) !important;
+  border-color: rgba(255,255,255,.22) !important;
+  color:        rgba(255,255,255,.85) !important;
+}
+.como .como-step {
+  background:   rgba(255,255,255,.04) !important;
+  border-color: rgba(255,255,255,.07) !important;
+}
+.como .como-step:hover {
+  background:   rgba(255,255,255,.08) !important;
+  border-color: rgba(252,164,14,.25)  !important;
+}
+.como .como-step h4  { color: #fff !important; }
+.como .como-step p   { color: rgba(255,255,255,.5) !important; }
+.como .como-step::before { color: rgba(252,164,14,.18) !important; }
+
+/* ── 4. SEÇÃO #paraquem — navy + glass cards ── */
+.paraquem {
+  background: linear-gradient(175deg, #14213D 0%, #0c1526 100%) !important;
+}
+.paraquem .section-label         { color: #fdb94a !important; }
+.paraquem .section-label::before { background: #FCA40E !important; }
+.paraquem .section-title         { color: #fff !important; }
+.paraquem .section-desc          { color: rgba(255,255,255,.5) !important; }
+
+.paraquem .pq-card {
+  background:          rgba(255,255,255,.06) !important;
+  backdrop-filter:     blur(20px) saturate(1.6) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.6) !important;
+  border-color:        rgba(255,255,255,.09) !important;
+}
+.paraquem .pq-card:hover {
+  background:   rgba(255,255,255,.1)  !important;
+  border-color: rgba(252,164,14,.32)  !important;
+  box-shadow:   0 24px 64px rgba(0,0,0,.3), 0 0 0 1px rgba(252,164,14,.15) !important;
+}
+.paraquem .pq-card h3 { color: #fff !important; }
+.paraquem .pq-card p  { color: rgba(255,255,255,.5) !important; }
+
+/* ── 5. RESULTADO: inclinado para transmitir movimento ── */
+.resultado {
+  transform: skewY(-1.6deg);
+  margin: 32px 0;
+}
+.resultado .container {
+  transform: skewY(1.6deg);
+}
+
+/* ── POLISH GERAL ── */
+
+/* Sobre frame: sombra mais profunda */
+.sobre-frame {
+  box-shadow: 0 48px 100px rgba(20,33,61,.14),
+              0 0 0 1px rgba(20,33,61,.06) !important;
+}
+
+/* Benefit cards: raio levemente maior */
+.ben-card { border-radius: 22px !important; }
+
+/* Plano featured: glow laranja mais pronunciado */
+.plano.featured {
+  box-shadow: 0 0 0 1.5px #FCA40E,
+              0 0 40px rgba(252,164,14,.15),
+              0 32px 80px rgba(20,33,61,.1) !important;
+}
+
+/* Nav scrolled: borda bottom sutil laranja */
+nav.scrolled {
+  border-bottom-color: rgba(252,164,14,.12) !important;
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <img src="../assets/logoofc.png" alt="PropagaCar" class="loader-logo">
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">Carregando...</div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo"><img src="../assets/logoofc.png" alt="PropagaCar"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#como">Como funciona</a>
+      <a href="#paraquem">Para quem</a>
+      <a href="#beneficios">Benefícios</a>
+      <a href="#planos">Planos</a>
+      <a href="#faq">FAQ</a>
+      <a href="#etica">Ética</a>
+      <a href="https://wa.me/5511913605854" class="btn btn-orange" target="_blank" rel="noopener noreferrer">Quero Anunciar</a>
+    </div>
+    <button class="hamburger" id="menuBtn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="badge-dot"></span> Mídia digital em carros de aplicativo</div>
+      <h1>Sua marca anunciada<br>dentro de <span class="highlight">carros de aplicativo</span></h1>
+      <p class="hero-desc">Impacte clientes todos os dias enquanto eles se deslocam pela cidade! Anúncios em tablets com atenção total do passageiro durante o trajeto.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5511913605854" class="btn btn-orange btn-lg" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.573-1.46A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.5-.648-6.358-1.772l-.456-.272-2.715.867.882-2.658-.298-.473A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Quero Anunciar Agora
+        </a>
+        <a href="#como" class="btn btn-glass btn-lg">Como funciona →</a>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="tablet-wrap">
+        <div class="tablet-body" id="tabletTilt">
+          <div class="tablet-screen">
+            <div class="ts-badge">▶ ANÚNCIO AO VIVO</div>
+            <div class="ts-brand">Sua Marca Aqui</div>
+            <div class="ts-cta">Saiba Mais</div>
+          </div>
+        </div>
+        <div class="fl fl-1"><div class="fl-val">98%</div><div class="fl-lbl">Taxa de visualização</div></div>
+        <div class="fl fl-2"><div class="fl-icon">⚡</div><div><div class="fl-t">Mídia Premium</div><div class="fl-s">Alto engajamento</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-visual reveal">
+        <div class="sobre-frame">
+          <img src="../assets/logoofc.png" alt="PropagaCar" class="sobre-logo" loading="lazy">
+          <div class="sobre-origin">
+            Tudo começou em uma corrida de aplicativo. Ao conversar com um passageiro do Morumbi, descobrimos que ele nunca tinha ouvido falar de uma pizzaria famosa do bairro — mesmo ela estando ali há um ano! Esse momento revelou uma <strong>oportunidade</strong>: conectar moradores e visitantes aos estabelecimentos locais.
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="reveal">
+          <span class="section-label">Quem somos</span>
+          <h2 class="section-title">Mais que uma empresa: um <span style="color:var(--orange)">ponto de conexão</span></h2>
+          <p class="section-desc">A PropagaCar nasceu para levar a publicidade para onde as pessoas realmente estão: em movimento. Unimos tecnologia e mídia urbana para conectar marcas a clientes reais de forma moderna e eficiente.</p>
+        </div>
+        <div class="sobre-mission">
+          <div class="sm-item reveal d1"><div class="sm-icon">🎯</div><div class="sm-text"><h4>Missão</h4><p>Gerar valor para empresas, motoristas e passageiros, conectando estabelecimentos ao seu público-alvo por meio de mídia digital.</p></div></div>
+          <div class="sm-item reveal d2"><div class="sm-icon">🔭</div><div class="sm-text"><h4>Visão</h4><p>Ser a principal referência nacional em mídia digital regional, liderando a transformação da mobilidade em conexão entre estabelecimentos e consumidores.</p></div></div>
+          <div class="sm-item reveal d3"><div class="sm-icon">🏆</div><div class="sm-text"><h4>Resultado</h4><p>Todos ganham: o comércio vende mais, o passageiro descobre novidades e ganha descontos, e o motorista aumenta sua renda.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como" id="como">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-label">Como funciona</span>
+      <h2 class="section-title">Uma solução que <span style="color:var(--orange)">beneficia todos</span></h2>
+    </div>
+    <div class="tab-hint reveal">
+      Selecione uma perspectiva
+      <svg class="tab-hint-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="como-tabs reveal">
+      <div class="como-tab active" data-tab="estab">🏪 Para o Estabelecimento</div>
+      <div class="como-tab" data-tab="motor">🚗 Para o Motorista</div>
+      <div class="como-tab" data-tab="pass">👤 Para o Passageiro</div>
+    </div>
+    <div class="como-content active" id="tab-estab">
+      <div class="como-steps">
+        <div class="como-step reveal d1"><h4>Definição de plano</h4><p>Escolha o plano ideal para seu negócio e região de atuação.</p></div>
+        <div class="como-step reveal d2"><h4>Criação do anúncio</h4><p>Equipe especializada cria seu anúncio digital otimizado para tablets.</p></div>
+        <div class="como-step reveal d3"><h4>Veiculação nos carros</h4><p>Seu anúncio é exibido em tablets nos bancos traseiros de carros de aplicativo.</p></div>
+        <div class="como-step reveal d4"><h4>Acompanhamento</h4><p>Monitore o desempenho da sua campanha com relatórios detalhados.</p></div>
+      </div>
+    </div>
+    <div class="como-content" id="tab-motor">
+      <div class="como-steps">
+        <div class="como-step reveal d1"><h4>Se cadastra</h4><p>Motorista se cadastra para rodar os anúncios durante as corridas.</p></div>
+        <div class="como-step reveal d2"><h4>Roda os vídeos</h4><p>Aumenta a renda apenas rodando vídeos nas viagens.</p></div>
+        <div class="como-step reveal d3"><h4>Valor fixo</h4><p>Recebe pagamento por valor fixo por período.</p></div>
+        <div class="como-step reveal d4"><h4>Bonificação</h4><p>Recebe bonificação extra com metas atingidas.</p></div>
+      </div>
+    </div>
+    <div class="como-content" id="tab-pass">
+      <div class="como-steps">
+        <div class="como-step reveal d1"><h4>Assiste aos vídeos</h4><p>Passageiro assiste aos vídeos durante sua viagem de forma natural.</p></div>
+        <div class="como-step reveal d2"><h4>Leitura do QR Code</h4><p>Faz a leitura do QR Code exibido no tablet.</p></div>
+        <div class="como-step reveal d3"><h4>Preenche formulário</h4><p>Preenche um formulário rápido com seus dados.</p></div>
+        <div class="como-step reveal d4"><h4>Recebe desconto</h4><p>Ganha desconto exclusivo para usar no estabelecimento.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROTA AO VIVO -->
+<section class="rota" id="rota">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-label">Em movimento</span>
+      <h2 class="section-title">Acompanhe sua marca<br>percorrendo a <span style="color:var(--orange)">cidade</span></h2>
+    </div>
+    <div class="rota-card reveal">
+      <div class="rota-topbar">
+        <div class="rota-brand">
+          <div class="rota-brand-dot"></div>
+          PropagaCar — Mapa ao vivo
+        </div>
+        <div class="rota-live">● Ao vivo</div>
+      </div>
+      <div class="rota-svg-wrap">
+        <svg id="rt-map" viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="rt-fCar" x="-120%" y="-120%" width="340%" height="340%">
+              <feGaussianBlur stdDeviation="7" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="rt-fZone"><feGaussianBlur stdDeviation="6"/></filter>
+            <filter id="rt-fDrop">
+              <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#FCA40E" flood-opacity=".55"/>
+            </filter>
+          </defs>
+          <!-- Background -->
+          <rect width="700" height="340" fill="#0d1825"/>
+          <!-- Horizontal streets -->
+          <rect x="0"   y="68"  width="700" height="24" fill="#0f2035"/>
+          <rect x="0"   y="168" width="700" height="24" fill="#0f2035"/>
+          <rect x="0"   y="268" width="700" height="24" fill="#0f2035"/>
+          <!-- Vertical streets -->
+          <rect x="88"  y="0" width="24" height="340" fill="#0f2035"/>
+          <rect x="218" y="0" width="24" height="340" fill="#0f2035"/>
+          <rect x="348" y="0" width="24" height="340" fill="#0f2035"/>
+          <rect x="478" y="0" width="24" height="340" fill="#0f2035"/>
+          <rect x="608" y="0" width="24" height="340" fill="#0f2035"/>
+          <!-- Buildings Row A -->
+          <rect x="0"   y="0" width="88"  height="68" fill="#142035" rx="2"/>
+          <rect x="112" y="0" width="106" height="68" fill="#162840" rx="2"/>
+          <rect x="242" y="4" width="106" height="64" fill="#142035" rx="2"/>
+          <rect x="372" y="0" width="106" height="68" fill="#1a2d45" rx="2"/>
+          <rect x="502" y="2" width="106" height="66" fill="#142035" rx="2"/>
+          <rect x="632" y="0" width="68"  height="68" fill="#162840" rx="2"/>
+          <!-- Buildings Row B -->
+          <rect x="0"   y="92" width="88"  height="76" fill="#1a2d45" rx="2"/>
+          <rect x="112" y="92" width="106" height="76" fill="#142035" rx="2"/>
+          <rect x="242" y="96" width="106" height="72" fill="#162840" rx="2"/>
+          <rect x="372" y="92" width="106" height="76" fill="#142035" rx="2"/>
+          <rect x="502" y="92" width="106" height="76" fill="#1a2d45" rx="2"/>
+          <rect x="632" y="92" width="68"  height="76" fill="#142035" rx="2"/>
+          <!-- Buildings Row C -->
+          <rect x="0"   y="192" width="88"  height="76" fill="#162840" rx="2"/>
+          <rect x="112" y="192" width="106" height="76" fill="#1a2d45" rx="2"/>
+          <rect x="242" y="196" width="106" height="72" fill="#142035" rx="2"/>
+          <rect x="372" y="192" width="106" height="76" fill="#162840" rx="2"/>
+          <rect x="502" y="192" width="106" height="76" fill="#142035" rx="2"/>
+          <rect x="632" y="192" width="68"  height="76" fill="#1a2d45" rx="2"/>
+          <!-- Buildings Row D -->
+          <rect x="0"   y="292" width="88"  height="48" fill="#142035" rx="2"/>
+          <rect x="112" y="292" width="106" height="48" fill="#162840" rx="2"/>
+          <rect x="242" y="292" width="106" height="48" fill="#1a2d45" rx="2"/>
+          <rect x="372" y="296" width="106" height="44" fill="#142035" rx="2"/>
+          <rect x="502" y="292" width="106" height="48" fill="#162840" rx="2"/>
+          <rect x="632" y="292" width="68"  height="48" fill="#142035" rx="2"/>
+          <!-- Windows -->
+          <rect x="14" y="14" width="5" height="5" fill="rgba(255,255,255,.07)" rx="1"/>
+          <rect x="22" y="14" width="5" height="5" fill="rgba(255,255,255,.1)"  rx="1"/>
+          <rect x="14" y="22" width="5" height="5" fill="rgba(255,255,255,.05)" rx="1"/>
+          <rect x="14" y="52" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+          <rect x="22" y="52" width="5" height="5" fill="rgba(255,255,255,.09)" rx="1"/>
+          <rect x="130" y="10" width="5" height="5" fill="rgba(255,255,255,.07)" rx="1"/>
+          <rect x="138" y="10" width="5" height="5" fill="rgba(255,255,255,.05)" rx="1"/>
+          <rect x="146" y="10" width="5" height="5" fill="rgba(255,255,255,.1)"  rx="1"/>
+          <rect x="390" y="8"  width="5" height="5" fill="rgba(255,255,255,.08)" rx="1"/>
+          <rect x="398" y="8"  width="5" height="5" fill="rgba(255,255,255,.05)" rx="1"/>
+          <rect x="406" y="8"  width="5" height="5" fill="rgba(255,255,255,.09)" rx="1"/>
+          <rect x="524" y="10" width="5" height="5" fill="rgba(255,255,255,.08)" rx="1"/>
+          <rect x="532" y="10" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+          <rect x="8"   y="104" width="5" height="5" fill="rgba(255,255,255,.07)" rx="1"/>
+          <rect x="16"  y="104" width="5" height="5" fill="rgba(255,255,255,.09)" rx="1"/>
+          <rect x="8"   y="148" width="5" height="5" fill="rgba(255,255,255,.08)" rx="1"/>
+          <rect x="262" y="100" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+          <rect x="270" y="100" width="5" height="5" fill="rgba(255,255,255,.1)"  rx="1"/>
+          <rect x="524" y="98"  width="5" height="5" fill="rgba(255,255,255,.07)" rx="1"/>
+          <rect x="650" y="100" width="5" height="5" fill="rgba(255,255,255,.08)" rx="1"/>
+          <rect x="650" y="108" width="5" height="5" fill="rgba(255,255,255,.06)" rx="1"/>
+          <!-- Zone glow blobs -->
+          <circle class="rt-pzone-glow" id="rt-g1" cx="100" cy="80"  r="24" fill="rgba(252,164,14,.08)" filter="url(#rt-fZone)"/>
+          <circle class="rt-pzone-glow" id="rt-g2" cx="360" cy="280" r="24" fill="rgba(252,164,14,.08)" filter="url(#rt-fZone)"/>
+          <circle class="rt-pzone-glow" id="rt-g3" cx="490" cy="80"  r="24" fill="rgba(252,164,14,.08)" filter="url(#rt-fZone)"/>
+          <!-- Route -->
+          <path id="rt-routePath"
+            d="M 0,180 L 100,180 L 100,80 L 230,80 L 230,280 L 360,280 L 360,80 L 490,80 L 490,180 L 620,180 L 620,280 L 700,280"
+            fill="none" stroke="#FCA40E" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round"
+            filter="url(#rt-fDrop)"
+            stroke-dasharray="1400" stroke-dashoffset="1400"/>
+          <!-- Pulse zones -->
+          <circle class="rt-pzone" id="rt-pz1" cx="100" cy="80"  r="5" fill="rgba(252,164,14,.55)"/>
+          <circle class="rt-pzone" id="rt-pz2" cx="360" cy="280" r="5" fill="rgba(252,164,14,.55)"/>
+          <circle class="rt-pzone" id="rt-pz3" cx="490" cy="80"  r="5" fill="rgba(252,164,14,.55)"/>
+          <!-- Car -->
+          <circle id="rt-carGlow" cx="0" cy="180" r="14" fill="rgba(252,164,14,.22)" filter="url(#rt-fCar)"/>
+          <circle id="rt-car"     cx="0" cy="180" r="7"  fill="#FCA40E"/>
+          <circle id="rt-carDot"  cx="0" cy="180" r="2.5" fill="rgba(255,255,255,.95)"/>
+          <!-- Start / end markers -->
+          <circle cx="0"   cy="180" r="4" fill="rgba(252,164,14,.35)"/>
+          <circle cx="700" cy="280" r="4" fill="rgba(252,164,14,.25)"/>
+        </svg>
+        <!-- Ad popup -->
+        <div id="rt-adCard">
+          <div class="rt-ad-icon" id="rt-adIcon">🍕</div>
+          <div>
+            <div class="rt-ad-name" id="rt-adName">Pizzaria Morumbi</div>
+            <div class="rt-ad-tag"  id="rt-adTag">20% OFF hoje</div>
+          </div>
+        </div>
+        <button class="rota-replay" id="rt-replayBtn">↺ Repetir</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="paraquem" id="paraquem">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-label">Para quem é</span>
+      <h2 class="section-title">Empresas locais que querem <span style="color:var(--orange)">crescer</span></h2>
+      <p class="section-desc">Publicidade direta e eficaz para quem quer se conectar com o público da região.</p>
+    </div>
+    <div class="pq-grid">
+      <div class="pq-card reveal d1"><span class="pq-emoji">🏪</span><h3>Estabelecimentos</h3><p>Anuncie seu negócio para clientes em movimento, gerando confiança e visibilidade na sua região.</p></div>
+      <div class="pq-card reveal d2"><span class="pq-emoji">🚗</span><h3>Motoristas</h3><p>Ganhe uma renda extra exibindo anúncios em tablets durante suas corridas de aplicativo.</p></div>
+      <div class="pq-card reveal d3"><span class="pq-emoji">🎁</span><h3>Passageiros</h3><p>Aproveite descontos exclusivos nos estabelecimentos anunciados enquanto viaja pela cidade.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADO -->
+<section class="resultado reveal">
+  <div class="container">
+    <h2>Todos Ganham</h2>
+    <p>O comércio vende mais, o passageiro descobre novidades e ganha descontos, e o motorista aumenta sua renda.</p>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="beneficios" id="beneficios">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-label">Vantagens claras</span>
+      <h2 class="section-title">Por que anunciar com a <span style="color:var(--orange)">PropagaCar</span></h2>
+      <p class="section-desc">Anuncie em tablets dentro de carros, gerando confiança e visibilidade diária.</p>
+    </div>
+    <div class="ben-grid">
+      <div class="ben-card reveal d1"><div class="ben-icon">🤝</div><h3>Mais confiança</h3><p>Anúncios em tablets criam credibilidade para sua marca junto aos clientes da região.</p></div>
+      <div class="ben-card reveal d2"><div class="ben-icon">🎟️</div><h3>Descontos exclusivos</h3><p>Clientes ganham descontos especiais ao verem seu anúncio, incentivando a visita ao seu estabelecimento.</p></div>
+      <div class="ben-card reveal d3"><div class="ben-icon">💰</div><h3>Renda para motoristas</h3><p>Motoristas parceiros recebem renda extra com nossos anúncios durante as corridas.</p></div>
+      <div class="ben-card reveal d1"><div class="ben-icon">👁️</div><h3>Atenção total</h3><p>O passageiro assiste seu anúncio durante todo o trajeto, com média de 15 minutos de exposição.</p></div>
+      <div class="ben-card reveal d2"><div class="ben-icon">📍</div><h3>Segmentação regional</h3><p>Escolha as regiões específicas para impactar seu público-alvo local onde ele está.</p></div>
+      <div class="ben-card reveal d3"><div class="ben-icon">📲</div><h3>QR Code integrado</h3><p>Passageiros escaneiam o QR Code e acessam descontos exclusivos do seu estabelecimento.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="planos" id="planos">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-label">Nossos planos</span>
+      <h2 class="section-title">Escolha o plano ideal para sua <span style="color:var(--orange)">marca crescer</span></h2>
+      <p class="section-desc">Planos flexíveis dentro dos carros de aplicativo da sua região.</p>
+    </div>
+    <div class="planos-grid">
+      <div class="plano reveal d1">
+        <div class="plano-name">Standard</div>
+        <div class="plano-desc">Anúncios simples com alcance regional e descontos exclusivos para clientes.</div>
+        <div class="plano-feats">
+          <div class="pf"><span class="ck">✓</span>2 carros rodando anúncios na região próxima ao seu estabelecimento</div>
+          <div class="pf"><span class="ck">✓</span>Criação de anúncio digital inclusa</div>
+          <div class="pf"><span class="ck">✓</span>QR Code com descontos para clientes</div>
+          <div class="pf"><span class="ck">✓</span>Suporte via WhatsApp</div>
+        </div>
+        <a href="https://wa.me/5511913605854" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Solicitar proposta</a>
+      </div>
+      <div class="plano featured reveal d2">
+        <div class="plano-tag">Recomendado</div>
+        <div class="plano-name">Premium</div>
+        <div class="plano-desc">Campanhas personalizadas com maior frequência e mais carros rodando.</div>
+        <div class="plano-feats">
+          <div class="pf"><span class="ck">✓</span>Mais carros rodando, conforme a escolha do estabelecimento</div>
+          <div class="pf"><span class="ck">✓</span>Campanhas personalizadas com maior frequência</div>
+          <div class="pf"><span class="ck">✓</span>QR Code com descontos exclusivos</div>
+          <div class="pf"><span class="ck">✓</span>Relatórios de acompanhamento</div>
+          <div class="pf"><span class="ck">✓</span>Suporte prioritário</div>
+        </div>
+        <a href="https://wa.me/5511913605854" class="btn btn-orange" target="_blank" rel="noopener noreferrer">Quero esse plano</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-label">Dúvidas comuns</span>
+      <h2 class="section-title">Perguntas <span style="color:var(--orange)">frequentes</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal d1"><div class="faq-q" onclick="toggleFaq(this)">Como funciona o serviço?<span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">Durante a corrida, o passageiro assiste a vídeos curtos em tablets instalados no carro. Cada vídeo apresenta estabelecimentos da região. O passageiro acessa um QR Code para descontos exclusivos. O motorista recebe bônus conforme o número de corridas realizadas.</div></div></div>
+      <div class="faq-item reveal d2"><div class="faq-q" onclick="toggleFaq(this)">Quem pode anunciar?<span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">Estabelecimentos regionais que querem aumentar a confiança e visibilidade local podem anunciar conosco. Restaurantes, clínicas, salões, lojas e qualquer negócio com público local.</div></div></div>
+      <div class="faq-item reveal d3"><div class="faq-q" onclick="toggleFaq(this)">Quais os benefícios para o cliente?<span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">Clientes ganham descontos exclusivos nos estabelecimentos anunciados, tornando a experiência mais vantajosa. Basta escanear o QR Code exibido no tablet.</div></div></div>
+      <div class="faq-item reveal d4"><div class="faq-q" onclick="toggleFaq(this)">Como os motoristas participam?<span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">Motoristas recebem uma renda extra exibindo os anúncios durante as corridas. Basta se cadastrar, receber o tablet e rodar normalmente. O pagamento é feito por valor fixo mais bonificações por metas.</div></div></div>
+      <div class="faq-item reveal d5"><div class="faq-q" onclick="toggleFaq(this)">Posso escolher onde anunciar?<span class="faq-arrow">▼</span></div><div class="faq-a"><div class="faq-a-inner">Sim, você pode selecionar regiões específicas para impactar seu público-alvo local. Os carros parceiros rodam na região próxima ao seu estabelecimento.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ETICA -->
+<section class="etica" id="etica">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="section-label">Ética & Compliance</span>
+      <h2 class="section-title">Atuamos com <span style="color:var(--orange)">integridade</span> e transparência</h2>
+      <p class="section-desc">Conheça os princípios e políticas que orientam nossas ações.</p>
+    </div>
+    <div class="etica-grid">
+      <div class="etica-card reveal d1">
+        <span class="etica-icon">📜</span>
+        <h3>Código de Ética</h3>
+        <p>Princípios e diretrizes de comportamento esperados de colaboradores e parceiros.</p>
+        <button class="btn btn-outline" onclick="openModal('modal-etica')">Ler documento</button>
+      </div>
+      <div class="etica-card reveal d2">
+        <span class="etica-icon">🛡️</span>
+        <h3>Anticorrupção e Antissuborno</h3>
+        <p>Diretrizes para prevenção e combate à corrupção, garantindo conformidade legal.</p>
+        <button class="btn btn-outline" onclick="openModal('modal-anti')">Ler documento</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL: CÓDIGO DE ÉTICA -->
+<div class="modal-overlay" id="modal-etica">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>📜 Código de Conduta e Ética</h2>
+      <button class="modal-close" onclick="closeModal('modal-etica')">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>1. Introdução e Cultura</h3>
+      <p>A PropagaCar é uma startup brasileira que conecta o comércio local, motoristas de aplicativo e passageiros por meio de tecnologia e mídia digital (DOOH). Operamos em um ecossistema dinâmico e acreditamos que o crescimento sustentável só é possível se estiver alicerçado em uma cultura de integridade, transparência e respeito.</p>
+      <p>Este Código de Ética estabelece as diretrizes que norteiam nossas decisões e comportamentos, garantindo a confiança de todos que interagem com a nossa plataforma.</p>
+      <h4>Missão, Visão e Valores</h4>
+      <ul>
+        <li><strong>Missão:</strong> Gerar valor para empresas, motoristas e passageiros, fortalecendo vínculos locais por meio de uma rede de mídia digital inovadora.</li>
+        <li><strong>Visão:</strong> Ser a principal referência nacional em mídia digital regional, transformando a mobilidade em um canal de conexão estratégica entre marcas e consumidores.</li>
+        <li><strong>Valores:</strong> Ética inegociável, transparência, inovação constante, diversidade, responsabilidade social e rigoroso compromisso com a legalidade.</li>
+      </ul>
+      <h3>2. Abrangência e Compromisso</h3>
+      <p>Este Código aplica-se obrigatoriamente a todos os públicos do ecossistema PropagaCar:</p>
+      <ul>
+        <li><strong>Estabelecimentos anunciantes:</strong> parceiros que utilizam a rede para veiculação de mídia.</li>
+        <li><strong>Motoristas parceiros:</strong> condutores que operam a tecnologia nos veículos.</li>
+        <li><strong>Passageiros:</strong> usuários finais que interagem com os conteúdos.</li>
+        <li><strong>Colaboradores e Fornecedores:</strong> todos que atuam direta ou indiretamente em nome da empresa.</li>
+      </ul>
+      <p>O aceite dos termos de uso da plataforma pressupõe o conhecimento e o compromisso integral com estas diretrizes.</p>
+      <h3>3. Diretrizes Gerais de Conduta</h3>
+      <h4>3.1. Integridade e Transparência</h4>
+      <p>Todas as informações trocadas na plataforma devem ser verídicas e completas. A comunicação de ofertas e métricas de anúncios deve ser transparente, vedando-se qualquer omissão de dados que possa induzir o parceiro ou consumidor ao erro.</p>
+      <h4>3.2. Respeito, Diversidade e Inclusão</h4>
+      <p>Não toleramos qualquer forma de discriminação, assédio ou preconceito (raça, gênero, orientação sexual, religião, idade, deficiência ou condição social). Valorizamos a diversidade como motor de inovação e exigimos que todas as interações no ambiente da PropagaCar sejam pautadas pela cortesia.</p>
+      <h4>3.3. Conformidade Legal e Regulatória</h4>
+      <p>Comprometemo-nos com o cumprimento rigoroso da legislação brasileira, com destaque para:</p>
+      <ul>
+        <li><strong>LGPD:</strong> Proteção absoluta dos dados pessoais.</li>
+        <li><strong>Código de Defesa do Consumidor:</strong> Garantia de publicidade honesta.</li>
+        <li><strong>Normas do CONAR:</strong> Autorregulamentação publicitária ética.</li>
+        <li><strong>Legislação de Trânsito:</strong> Segurança como prioridade máxima.</li>
+      </ul>
+      <h3>4. Diretrizes Específicas por Público</h3>
+      <h4>4.1. Para os Anunciantes</h4>
+      <ul>
+        <li>O conteúdo publicitário deve ser lícito e adequado ao público geral.</li>
+        <li>É proibida a veiculação de conteúdos que promovam violência, atividades ilícitas, fake news ou produtos sem regulamentação legal.</li>
+        <li>Devem ser respeitados todos os direitos de propriedade intelectual de terceiros.</li>
+      </ul>
+      <h4>4.2. Para os Motoristas Parceiros</h4>
+      <ul>
+        <li>Zelar pela integridade física dos tablets e equipamentos fornecidos.</li>
+        <li>Manter postura profissional e ética, evitando a exposição de opiniões pessoais que possam gerar desconforto ao passageiro.</li>
+        <li>Respeitar estritamente a privacidade dos passageiros, sendo vedado o compartilhamento de informações sobre rotas ou perfis de usuários.</li>
+      </ul>
+      <h4>4.3. Para os Passageiros</h4>
+      <ul>
+        <li>Interagir com os equipamentos de forma respeitosa, preservando o patrimônio físico e digital.</li>
+        <li>Comunicar à PropagaCar qualquer conteúdo que considere inadequado por meio dos canais oficiais.</li>
+      </ul>
+      <h3>5. Proteção de Dados e Privacidade</h3>
+      <p>A PropagaCar adota medidas técnicas e administrativas para garantir que a coleta e o tratamento de dados pessoais ocorram apenas para as finalidades autorizadas.</p>
+      <ul>
+        <li><strong>Transparência:</strong> o titular tem direito de acesso e correção de seus dados.</li>
+        <li><strong>Segurança:</strong> implementamos protocolos contra acessos não autorizados ou incidentes de segurança.</li>
+      </ul>
+      <h3>6. Prevenção a Conflitos de Interesse e Corrupção</h3>
+      <ul>
+        <li><strong>Conflitos:</strong> decisões comerciais devem ser baseadas em critérios técnicos e éticos, nunca em interesses pessoais.</li>
+        <li><strong>Brindes e Hospitalidade:</strong> é vedada a oferta ou aceitação de vantagens que visem influenciar decisões comerciais de forma indevida. Pequenos brindes institucionais são permitidos, desde que dentro dos limites da razoabilidade e da política interna.</li>
+      </ul>
+      <h3>7. Canal de Ética e Denúncias</h3>
+      <p>A PropagaCar disponibiliza um canal seguro e confidencial para o relato de qualquer violação a este Código.</p>
+      <ul>
+        <li><strong>Não Retaliação:</strong> Garantimos proteção total ao denunciante de boa-fé.</li>
+        <li><strong>Sigilo:</strong> As apurações são conduzidas com imparcialidade e sigilo absoluto.</li>
+        <li><strong>Contato:</strong> <a href="mailto:eticaedenuncia@propagacar.com">eticaedenuncia@propagacar.com</a></li>
+      </ul>
+      <h3>8. Consequências e Atualizações</h3>
+      <p>O descumprimento destas normas poderá resultar em advertências, rescisões contratuais e exclusão definitiva da plataforma, sem prejuízo de medidas judiciais cabíveis. Este documento é revisado periodicamente e sua versão mais atualizada estará sempre disponível em nosso site oficial.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="mailto:eticaedenuncia@propagacar.com" class="btn btn-outline" style="font-size:.78rem">Denuncie</a>
+      <button class="btn btn-navy" onclick="closeModal('modal-etica')" style="font-size:.78rem">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ANTICORRUPÇÃO -->
+<div class="modal-overlay" id="modal-anti">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>🛡️ Política Anticorrupção e Antissuborno</h2>
+      <button class="modal-close" onclick="closeModal('modal-anti')">✕</button>
+    </div>
+    <div class="modal-body">
+      <h3>1. Objetivo e Abrangência</h3>
+      <p>A presente Política estabelece as diretrizes para prevenir, detectar e combater atos de corrupção, suborno e fraudes em todas as operações da PropagaCar.</p>
+      <p>Esta norma aplica-se obrigatoriamente a:</p>
+      <ul>
+        <li>Colaboradores e administradores;</li>
+        <li>Motoristas parceiros;</li>
+        <li>Estabelecimentos anunciantes;</li>
+        <li>Fornecedores e prestadores de serviço que atuem em nome ou benefício da empresa.</li>
+      </ul>
+      <h3>2. Princípios Fundamentais</h3>
+      <ul>
+        <li><strong>Tolerância Zero:</strong> Não admitimos qualquer forma de corrupção, suborno, lavagem de dinheiro ou obtenção de vantagem indevida, seja em relações com órgãos públicos ou entre entes privados.</li>
+        <li><strong>Conformidade Legal:</strong> Atuamos em estrita observância à Lei nº 12.846/2013 (Lei Anticorrupção), à LGPD (Lei nº 13.709/2018) e ao Código de Defesa do Consumidor.</li>
+        <li><strong>Responsabilidade Objetiva:</strong> A PropagaCar reconhece que pode ser responsabilizada por atos ilícitos praticados por terceiros em seu benefício, por isso exige o compromisso ético de todos os seus parceiros.</li>
+      </ul>
+      <h3>3. Definições Essenciais</h3>
+      <ul>
+        <li><strong>Corrupção:</strong> Abuso de poder ou posição para obter vantagem indevida para si ou para terceiros.</li>
+        <li><strong>Suborno:</strong> Oferta, promessa ou pagamento de qualquer valor ou benefício para influenciar decisões.</li>
+        <li><strong>Vantagem Indevida:</strong> Qualquer benefício (dinheiro, presentes, hospitalidade, contratos ou informações privilegiadas) que não possua base legal ou legítima.</li>
+        <li><strong>Agente Público:</strong> Qualquer pessoa que exerça cargo, emprego ou função pública, mesmo que temporariamente ou sem remuneração.</li>
+      </ul>
+      <h3>4. Diretrizes de Conduta</h3>
+      <h4>4.1. Proibição de Pagamentos e Favores</h4>
+      <p>É terminantemente proibido prometer, oferecer ou dar, direta ou indiretamente, qualquer vantagem indevida a agentes públicos ou parceiros privados. Isso inclui "pagamentos de facilitação" (pequenas quantias para acelerar processos burocráticos rotineiros).</p>
+      <h4>4.2. Brindes, Presentes e Hospitalidade</h4>
+      <p>A troca de brindes só é permitida se:</p>
+      <ul>
+        <li>Tiver caráter estritamente institucional (logotipo da empresa);</li>
+        <li>Tiver valor módico/baixo;</li>
+        <li>Não houver expectativa de reciprocidade ou influência em decisões.</li>
+      </ul>
+      <p>É proibido, em qualquer circunstância, o oferecimento ou aceitação de presentes em dinheiro ou equivalentes (vales-presente).</p>
+      <h4>4.3. Relacionamento com o Setor Público</h4>
+      <p>Toda interação com o Poder Público deve ser transparente, formalizada e documentada. É vedada qualquer tentativa de fraudar licitações, manipular contratos administrativos ou dificultar atividades de fiscalização.</p>
+      <h4>4.4. Diligência com Parceiros (Due Diligence)</h4>
+      <p>A PropagaCar realiza avaliações prévias de seus fornecedores, motoristas e anunciantes. Não contratamos parceiros com histórico comprovado de corrupção ou práticas ilícitas. Nossos contratos contêm cláusulas resolutivas que permitem a rescisão imediata em caso de violação ética.</p>
+      <h3>5. Monitoramento e Transparência</h3>
+      <h4>5.1. Canal de Denúncias</h4>
+      <p>Mantemos um canal seguro para o relato de suspeitas de irregularidades.</p>
+      <ul>
+        <li><strong>Confidencialidade:</strong> Garantimos o sigilo absoluto da identidade do denunciante.</li>
+        <li><strong>Não Retaliação:</strong> Protegemos quem denuncia de boa-fé contra qualquer forma de punição ou represália.</li>
+        <li><strong>Acesso:</strong> <a href="mailto:eticaedenuncia@propagacar.com">eticaedenuncia@propagacar.com</a></li>
+      </ul>
+      <h4>5.2. Auditoria e Sanções</h4>
+      <p>Realizamos monitoramento contínuo de nossas transações. Violações a esta Política sujeitam o infrator a:</p>
+      <ul>
+        <li>Advertências e multas;</li>
+        <li>Rescisão contratual imediata;</li>
+        <li>Banimento da plataforma PropagaCar;</li>
+        <li>Comunicação às autoridades competentes (Polícia Civil, Ministério Público, etc.).</li>
+      </ul>
+      <h3>6. Disposições Finais</h3>
+      <p>Esta Política é revisada anualmente para garantir sua eficácia frente a novos riscos de mercado. O compromisso com a integridade é o que viabiliza a expansão da PropagaCar e a segurança de nossos investidores e parceiros.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="mailto:eticaedenuncia@propagacar.com" class="btn btn-outline" style="font-size:.78rem">Denuncie</a>
+      <button class="btn btn-navy" onclick="closeModal('modal-anti')" style="font-size:.78rem">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box reveal">
+      <h2>Pronto para anunciar sua marca<br><span class="highlight">em carros de aplicativo?</span></h2>
+      <p>Impacte clientes enquanto eles se deslocam pela cidade. Fale com nossa equipe agora.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/5511913605854" class="btn btn-orange btn-lg" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.573-1.46A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.5-.648-6.358-1.772l-.456-.272-2.715.867.882-2.658-.298-.473A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a href="mailto:contato@propagacar.com" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.2);color:#fff">Enviar e-mail →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#" class="footer-logo"><img src="../assets/logoofc.png" alt="PropagaCar"></a>
+      <div class="footer-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#como">Como funciona</a>
+        <a href="#planos">Planos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#etica">Ética</a>
+        <a href="mailto:contato@propagacar.com">Contato</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2025 PropagaCar. Todos os direitos reservados. | <a href="mailto:contato@propagacar.com">contato@propagacar.com</a> | <a href="https://wa.me/5511913605854">(11) 91360-5854</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

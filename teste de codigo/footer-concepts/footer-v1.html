@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer V1 — Grid 4 colunas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Be Vietnam Pro',sans-serif;
+  background:
+    linear-gradient(rgba(20,33,61,.032) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(20,33,61,.032) 1px,transparent 1px),
+    #F8F9FC;
+  background-size:60px 60px,60px 60px,100% 100%;
+  background-attachment:fixed;
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.page-hint{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  color:rgba(20,33,61,.18);font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+}
+a{text-decoration:none;color:inherit}
+
+/* ── FOOTER V1: Grid 4 colunas ── */
+footer{
+  background:#14213D;
+  padding:64px 0 0;
+  position:relative;
+}
+footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,#FCA40E,transparent);
+  opacity:.6;
+}
+.container{max-width:1160px;margin:0 auto;padding:0 28px}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:48px;
+  padding-bottom:48px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+/* Col 1: marca */
+.footer-brand{}
+.footer-logo{height:32px;width:auto;margin-bottom:16px;opacity:.9}
+.footer-tagline{
+  font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.7;
+  max-width:220px;margin-bottom:28px;
+}
+.footer-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#FCA40E;color:#14213D;
+  padding:11px 22px;border-radius:50px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.78rem;font-weight:700;
+  transition:all .3s;
+}
+.footer-cta:hover{background:#e8930a;transform:translateY(-2px)}
+
+/* Cols 2-4: links */
+.footer-col h5{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:2.5px;
+  color:rgba(255,255,255,.35);margin-bottom:18px;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{
+  font-size:.84rem;color:rgba(255,255,255,.55);
+  transition:color .25s;
+}
+.footer-col ul li a:hover{color:#fff}
+
+/* Bottom bar */
+.footer-bottom{
+  padding:18px 0;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.25)}
+.footer-copy a{color:rgba(255,255,255,.4);transition:color .25s}
+.footer-copy a:hover{color:#FCA40E}
+.footer-legal{
+  display:flex;gap:20px;
+}
+.footer-legal a{
+  font-size:.68rem;color:rgba(255,255,255,.25);
+  transition:color .25s;
+}
+.footer-legal a:hover{color:rgba(255,255,255,.5)}
+</style>
+</head>
+<body>
+
+<div class="page-hint">conteúdo da página acima</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Marca -->
+      <div class="footer-brand">
+        <img src="../../assets/logoofc.png" alt="PropagaCar" class="footer-logo">
+        <p class="footer-tagline">Conectando marcas a clientes locais enquanto eles se deslocam pela cidade.</p>
+        <a href="https://wa.me/5511913605854" class="footer-cta" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.573-1.46A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.5-.648-6.358-1.772l-.456-.272-2.715.867.882-2.658-.298-.473A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Quero Anunciar
+        </a>
+      </div>
+
+      <!-- Empresa -->
+      <div class="footer-col">
+        <h5>Empresa</h5>
+        <ul>
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#">Como funciona</a></li>
+          <li><a href="#">Benefícios</a></li>
+          <li><a href="#">Ética & Compliance</a></li>
+        </ul>
+      </div>
+
+      <!-- Soluções -->
+      <div class="footer-col">
+        <h5>Soluções</h5>
+        <ul>
+          <li><a href="#">Para anunciantes</a></li>
+          <li><a href="#">Para motoristas</a></li>
+          <li><a href="#">Plano Standard</a></li>
+          <li><a href="#">Plano Premium</a></li>
+        </ul>
+      </div>
+
+      <!-- Contato -->
+      <div class="footer-col">
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="https://wa.me/5511913605854">(11) 91360-5854</a></li>
+          <li><a href="mailto:contato@propagacar.com">contato@propagacar.com</a></li>
+          <li><a href="#">São Paulo, SP</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 PropagaCar. Todos os direitos reservados.</p>
+      <div class="footer-legal">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
