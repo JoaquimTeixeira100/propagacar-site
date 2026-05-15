@@ -1,0 +1,41 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FICHA DO PARCEIRO — PropagaCar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOME: Animais & Cia
+CATEGORIA: Pets
+BAIRRO: Jardins
+CIDADE: São Paulo, SP
+
+DESCRICAO_CURTA:
+Pet shop completo com banho e tosa, atendimento veterinário, loja de produtos premium e hotelaria com câmeras ao vivo.
+
+DESCRICAO_LONGA:
+O Animais & Cia é o melhor amigo do seu melhor amigo! Serviços completos: banho e tosa com agendamento online, atendimento veterinário clínico e cirúrgico, loja com produtos premium nacionais e importados, e hotelaria para cães e gatos com câmeras ao vivo para os tutores acompanharem tudo.
+
+OFERTA: 1º banho com 50% de desconto
+
+TELEFONE: (11) 93210-9876
+WHATSAPP: 5511932109876
+SITE: animaisecia.com.br
+INSTAGRAM: @animaisecia
+EMAIL: contato@animaisecia.com.br
+
+HORARIO: Seg–Sáb: 8h às 20h | Dom: 9h às 17h
+DESDE: 2022
+
+TAGS: Banho e Tosa, Veterinária, Hotelaria, Ração Premium
+
+DESTAQUE: não
+EMOJI: 🐾
+COR_GRADIENTE: linear-gradient(135deg,#0d6b6b,#148a8a)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMAGENS (coloque nas pastas abaixo)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  logo.png     → logo quadrado, fundo branco ou transparente
+  preview.png  → foto do card, proporção 16:9, mín. 400×225px
+  fotos/1.jpg  → foto principal / fachada
+  fotos/2.jpg  → ambiente / produto
+  fotos/3.jpg  → adicional (opcional)

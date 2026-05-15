@@ -1,0 +1,41 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FICHA DO PARCEIRO — PropagaCar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOME: Sabor do Sul
+CATEGORIA: Alimentação
+BAIRRO: Moema
+CIDADE: São Paulo, SP
+
+DESCRICAO_CURTA:
+Churrascaria gaúcha autêntica com rodízio completo, buffet de frios e carta de vinhos selecionados. Referência em Moema há 8 anos.
+
+DESCRICAO_LONGA:
+O Sabor do Sul traz toda a tradição gaúcha para o coração de Moema. Com rodízio ininterrupto de mais de 20 cortes especiais, buffet de frios premium e carta de vinhos criteriosamente selecionada, é o lugar perfeito para celebrar momentos especiais ou realizar almoços executivos.
+
+OFERTA: Sobremesa cortesia no jantar
+
+TELEFONE: (11) 94321-0987
+WHATSAPP: 5511943210987
+SITE: sabordosul.com.br
+INSTAGRAM: @sabordosulsp
+EMAIL: contato@sabordosul.com.br
+
+HORARIO: Seg–Sex: 12h–15h e 18h–23h | Sáb–Dom: 12h–23h
+DESDE: 2016
+
+TAGS: Churrasco, Rodízio, Gaúcho, Vinho
+
+DESTAQUE: não
+EMOJI: 🍖
+COR_GRADIENTE: linear-gradient(135deg,#784212,#ba4a00)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMAGENS (coloque nas pastas abaixo)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  logo.png     → logo quadrado, fundo branco ou transparente
+  preview.png  → foto do card, proporção 16:9, mín. 400×225px
+  fotos/1.jpg  → foto principal / fachada
+  fotos/2.jpg  → ambiente / produto
+  fotos/3.jpg  → adicional (opcional)

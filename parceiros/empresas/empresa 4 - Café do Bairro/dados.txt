@@ -1,0 +1,41 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FICHA DO PARCEIRO — PropagaCar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOME: Café do Bairro
+CATEGORIA: Alimentação
+BAIRRO: Itaim Bibi
+CIDADE: São Paulo, SP
+
+DESCRICAO_CURTA:
+Café especializado em grãos de origem única, com blend exclusivo torrado artesanalmente. Espaço aconchegante para trabalho e reuniões.
+
+DESCRICAO_LONGA:
+O Café do Bairro é um refúgio no agitado Itaim Bibi. Servimos cafés especiais de origem única, preparados por baristas certificados, ao lado de pães artesanais, bolos e snacks. O espaço conta com Wi-Fi de alta velocidade, tomadas em todas as mesas e sala de reuniões disponível para reserva.
+
+OFERTA: Pontos em dobro no programa fidelidade
+
+TELEFONE: (11) 97654-3210
+WHATSAPP: 5511976543210
+SITE: cafedodobairro.com.br
+INSTAGRAM: @cafedodobairro
+EMAIL: contato@cafedodobairro.com.br
+
+HORARIO: Seg–Sex: 7h às 20h | Sáb–Dom: 8h às 18h
+DESDE: 2020
+
+TAGS: Café Especial, Brunch, Wi-Fi, Artesanal
+
+DESTAQUE: sim
+EMOJI: ☕
+COR_GRADIENTE: linear-gradient(135deg,#5d4037,#8d6e63)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMAGENS (coloque nas pastas abaixo)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  logo.png     → logo quadrado, fundo branco ou transparente
+  preview.png  → foto do card, proporção 16:9, mín. 400×225px
+  fotos/1.jpg  → foto principal / fachada
+  fotos/2.jpg  → ambiente / produto
+  fotos/3.jpg  → adicional (opcional)

@@ -1,0 +1,41 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FICHA DO PARCEIRO — PropagaCar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOME: Farmácia Saúde Total
+CATEGORIA: Saúde
+BAIRRO: Campo Belo
+CIDADE: São Paulo, SP
+
+DESCRICAO_CURTA:
+Farmácia de manipulação com farmacêutico responsável em horário integral. Medicamentos manipulados com entrega em até 48h.
+
+DESCRICAO_LONGA:
+A Farmácia Saúde Total é especializada em manipulação personalizada e oferece portfólio completo de medicamentos, suplementos, dermocosméticos e produtos naturais. Com farmacêutico responsável em horário integral e delivery próprio, garantimos o melhor atendimento para a sua saúde.
+
+OFERTA: 10% OFF em todos os manipulados
+
+TELEFONE: (11) 95432-1098
+WHATSAPP: 5511954321098
+SITE: farmaciasaudetotal.com.br
+INSTAGRAM: @farmaciasaudetotal
+EMAIL: contato@farmaciasaudetotal.com.br
+
+HORARIO: Seg–Sáb: 8h às 22h | Dom: 9h às 18h
+DESDE: 2015
+
+TAGS: Manipulação, Suplementos, Dermocosméticos, Delivery
+
+DESTAQUE: não
+EMOJI: 💊
+COR_GRADIENTE: linear-gradient(135deg,#1a7a41,#27ae60)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMAGENS (coloque nas pastas abaixo)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  logo.png     → logo quadrado, fundo branco ou transparente
+  preview.png  → foto do card, proporção 16:9, mín. 400×225px
+  fotos/1.jpg  → foto principal / fachada
+  fotos/2.jpg  → ambiente / produto
+  fotos/3.jpg  → adicional (opcional)

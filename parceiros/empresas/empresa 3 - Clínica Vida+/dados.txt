@@ -1,0 +1,41 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FICHA DO PARCEIRO — PropagaCar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOME: Clínica Vida+
+CATEGORIA: Saúde
+BAIRRO: Pinheiros
+CIDADE: São Paulo, SP
+
+DESCRICAO_CURTA:
+Clínica multidisciplinar com especialistas em clínica geral, cardiologia, dermatologia e ortopedia. Atendimento humanizado.
+
+DESCRICAO_LONGA:
+A Clínica Vida+ oferece atendimento médico completo com foco em saúde preventiva e qualidade de vida. Contamos com equipe multidisciplinar, equipamentos de última geração e ambiente acolhedor. Aceitamos os principais planos de saúde e oferecemos consultas particulares com preço acessível.
+
+OFERTA: 1ª consulta com valor especial
+
+TELEFONE: (11) 3456-7890
+WHATSAPP: 5511934567890
+SITE: clinicavidamais.com.br
+INSTAGRAM: @clinicavidamais
+EMAIL: contato@clinicavidamais.com.br
+
+HORARIO: Seg–Sex: 8h às 18h | Sáb: 8h às 13h
+DESDE: 2018
+
+TAGS: Medicina, Cardiologia, Dermatologia, Planos
+
+DESTAQUE: não
+EMOJI: 🏥
+COR_GRADIENTE: linear-gradient(135deg,#117a65,#1abc9c)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMAGENS (coloque nas pastas abaixo)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  logo.png     → logo quadrado, fundo branco ou transparente
+  preview.png  → foto do card, proporção 16:9, mín. 400×225px
+  fotos/1.jpg  → foto principal / fachada
+  fotos/2.jpg  → ambiente / produto
+  fotos/3.jpg  → adicional (opcional)

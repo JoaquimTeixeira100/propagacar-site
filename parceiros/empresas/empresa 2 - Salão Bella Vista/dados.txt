@@ -1,0 +1,41 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FICHA DO PARCEIRO — PropagaCar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOME: Salão Bella Vista
+CATEGORIA: Beleza
+BAIRRO: Vila Olímpia
+CIDADE: São Paulo, SP
+
+DESCRICAO_CURTA:
+Salão premium especializado em coloração, corte moderno e tratamentos capilares com produtos importados de alta performance.
+
+DESCRICAO_LONGA:
+O Salão Bella Vista é o destino certo para quem busca excelência em beleza capilar. Nossa equipe de profissionais certificados utiliza as melhores técnicas e produtos do mercado — de colorações balayage a tratamentos de queratina — para garantir um resultado impecável. Agendamento online disponível.
+
+OFERTA: Combo corte + escova com valor especial
+
+TELEFONE: (11) 98765-4321
+WHATSAPP: 5511987654321
+SITE: salaobellаvista.com.br
+INSTAGRAM: @salaоbellavista
+EMAIL: contato@salaоbellavista.com.br
+
+HORARIO: Seg–Sáb: 9h às 19h
+DESDE: 2021
+
+TAGS: Cabelo, Coloração, Escova, Manicure
+
+DESTAQUE: não
+EMOJI: 💇
+COR_GRADIENTE: linear-gradient(135deg,#6c3483,#9b59b6)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMAGENS (coloque nas pastas abaixo)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  logo.png     → logo quadrado, fundo branco ou transparente
+  preview.png  → foto do card, proporção 16:9, mín. 400×225px
+  fotos/1.jpg  → foto principal / fachada
+  fotos/2.jpg  → ambiente / produto
+  fotos/3.jpg  → adicional (opcional)

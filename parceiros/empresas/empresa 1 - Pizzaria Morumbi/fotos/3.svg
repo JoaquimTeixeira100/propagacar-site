@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#c0392b" opacity=".07"/>
+  <rect x="2" y="2" width="1196" height="796" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="10 5" opacity=".25"/>
+  <text x="600" y="340" font-family="sans-serif" font-size="80" text-anchor="middle">🍕</text>
+  <text x="600" y="430" font-family="sans-serif" font-size="20" font-weight="700" fill="#c0392b" text-anchor="middle">Foto 3 — Produto / Serviço</text>
+  <text x="600" y="460" font-family="sans-serif" font-size="14" fill="#aaa" text-anchor="middle">Pizzaria Morumbi</text>
+  <text x="600" y="490" font-family="sans-serif" font-size="12" fill="#ccc" text-anchor="middle">1200 × 800 px  ·  substituir por foto real</text>
+</svg>

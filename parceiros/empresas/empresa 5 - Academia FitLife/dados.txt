@@ -1,0 +1,41 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FICHA DO PARCEIRO — PropagaCar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOME: Academia FitLife
+CATEGORIA: Fitness
+BAIRRO: Brooklin
+CIDADE: São Paulo, SP
+
+DESCRICAO_CURTA:
+Academia completa com musculação, spinning, pilates, crossfit e personal trainers certificados. Equipamentos de última geração.
+
+DESCRICAO_LONGA:
+A FitLife é mais que uma academia — é um estilo de vida. Com mais de 3.000 m² de área, oferecemos musculação, crossfit, pilates, yoga, natação e aulas em grupo. Personal trainers disponíveis para avaliação física gratuita para novos alunos. Planos mensais, trimestrais e anuais.
+
+OFERTA: Primeira semana totalmente grátis
+
+TELEFONE: (11) 96543-2109
+WHATSAPP: 5511965432109
+SITE: academiafit.com.br
+INSTAGRAM: @academiafit
+EMAIL: contato@academiafit.com.br
+
+HORARIO: Seg–Sex: 6h às 23h | Sáb–Dom: 7h às 20h
+DESDE: 2017
+
+TAGS: Musculação, Crossfit, Pilates, Personal Trainer
+
+DESTAQUE: não
+EMOJI: 🏋️
+COR_GRADIENTE: linear-gradient(135deg,#1a3a5c,#2471a3)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMAGENS (coloque nas pastas abaixo)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  logo.png     → logo quadrado, fundo branco ou transparente
+  preview.png  → foto do card, proporção 16:9, mín. 400×225px
+  fotos/1.jpg  → foto principal / fachada
+  fotos/2.jpg  → ambiente / produto
+  fotos/3.jpg  → adicional (opcional)

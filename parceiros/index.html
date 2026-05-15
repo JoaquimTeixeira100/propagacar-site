@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parceiros — PropagaCar</title>
+<meta name="description" content="Conheça os estabelecimentos parceiros da PropagaCar. Descontos exclusivos para passageiros de aplicativo em restaurantes, clínicas, salões e muito mais.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Parceiros PropagaCar — Descontos Exclusivos">
+<meta property="og:description" content="Estabelecimentos que anunciam em carros de aplicativo e oferecem descontos exclusivos para passageiros.">
+<meta property="og:image" content="../assets/logoofc.png">
+<link rel="icon" href="../assets/logoofc.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <img src="../assets/logoofc.png" alt="PropagaCar" class="loader-logo">
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">Carregando...</div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/logoofc.png" alt="PropagaCar">
+    </a>
+    <div class="nav-breadcrumb">
+      <span class="nav-sep">/</span>
+      <span class="nav-current">Parceiros</span>
+    </div>
+    <a href="../index.html" class="btn btn-sm btn-outline">← Site principal</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge"><span class="badge-dot"></span> Publicidade PropagaCar</div>
+    <h1>Conheça quem anuncia<br>na nossa <span class="highlight">rede</span></h1>
+    <p class="hero-desc">Estabelecimentos parceiros que chegam até você durante a viagem — com ofertas exclusivas para passageiros.</p>
+
+    <div class="search-bar">
+      <svg class="sb-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="searchInput" class="sb-input" placeholder="Buscar parceiro, bairro ou categoria…" autocomplete="off" spellcheck="false">
+      <button class="sb-clear" id="searchClear" aria-label="Limpar busca">✕</button>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n" id="statTotal">—</span><span class="hstat-l">Parceiros</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n" id="statCategories">—</span><span class="hstat-l">Categorias</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n" id="statNeighborhoods">—</span><span class="hstat-l">Bairros</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTERS BAR -->
+<div class="filters-bar" id="filtersBar">
+  <div class="container">
+    <div class="filters-inner">
+      <div class="filter-pills" id="filterPills"></div>
+      <div class="results-count" id="resultsCount"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTNERS -->
+<section class="partners-section">
+  <div class="container">
+    <div class="partners-grid" id="partnersGrid"></div>
+    <div class="empty-state hidden" id="emptyState">
+      <div class="empty-emoji">🔍</div>
+      <h3>Nenhum parceiro encontrado</h3>
+      <p>Tente outro termo ou selecione uma categoria diferente.</p>
+      <button class="btn btn-outline" id="clearBtn">Limpar filtros</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="cta-text">
+        <div class="cta-label">Quer sua empresa aqui?</div>
+        <h2>Anuncie para quem está<br>em movimento pela cidade</h2>
+        <p>Junte-se à rede PropagaCar e alcance clientes da sua região enquanto eles se deslocam de aplicativo.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://wa.me/5511913605854" class="btn btn-orange btn-lg" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.573-1.46A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.5-.648-6.358-1.772l-.456-.272-2.715.867.882-2.658-.298-.473A9.958 9.958 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+          </svg>
+          Falar com a PropagaCar
+        </a>
+        <a href="../index.html#planos" class="btn btn-outline btn-lg">Ver planos →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo"><img src="../assets/logoofc.png" alt="PropagaCar"></a>
+      <p class="footer-copy">© 2026 PropagaCar · Todos os direitos reservados · <a href="mailto:contato@propagacar.com">contato@propagacar.com</a></p>
+      <a href="../index.html" class="footer-back-link">← Site principal</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="partnerModal">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

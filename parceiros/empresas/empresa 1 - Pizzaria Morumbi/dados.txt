@@ -1,0 +1,41 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FICHA DO PARCEIRO — PropagaCar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOME: Pizzaria Morumbi
+CATEGORIA: Alimentação
+BAIRRO: Morumbi
+CIDADE: São Paulo, SP
+
+DESCRICAO_CURTA:
+A melhor pizza artesanal do bairro. Mais de 40 sabores com massa de fermentação natural, assada em forno a lenha.
+
+DESCRICAO_LONGA:
+Nascida no coração do Morumbi em 2019, a Pizzaria Morumbi se tornou referência na região pela qualidade dos ingredientes e o atendimento caloroso. Com mais de 40 sabores de pizza — das clássicas às autorais —, cada pedido é uma experiência única. Delivery disponível para toda a região com embalagem térmica e rastreamento em tempo real.
+
+OFERTA: 20% OFF em qualquer pizza para passageiros PropagaCar
+
+TELEFONE: (11) 99123-4567
+WHATSAPP: 5511991234567
+SITE: pizzariamorumbi.com.br
+INSTAGRAM: @pizzariamorumbi
+EMAIL: contato@pizzariamorumbi.com.br
+
+HORARIO: Ter–Dom: 18h às 23h
+DESDE: 2019
+
+TAGS: Pizza, Delivery, Artesanal, Forno a Lenha
+
+DESTAQUE: sim
+EMOJI: 🍕
+COR_GRADIENTE: linear-gradient(135deg,#c0392b,#e74c3c)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  IMAGENS (coloque nas pastas abaixo)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  logo.png     → logo quadrado, fundo branco ou transparente
+  preview.png  → foto do card, proporção 16:9, mín. 400×225px
+  fotos/1.jpg  → foto principal / fachada
+  fotos/2.jpg  → ambiente / produto
+  fotos/3.jpg  → adicional (opcional)
